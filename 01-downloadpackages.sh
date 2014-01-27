@@ -20,12 +20,7 @@ answer="$(eval dialog \
 	--menu \"Select the edition you want to download packages for:\" \
 	0 0 0 \
 	'xfce' 'o' \
-	'kde' 'o' \
-	'mate' 'o' \
-	'ratpoison' 'o' \
-	'openbox' 'o' \
-	'lxde' 'o' \
-	'core' 'o' )"
+	'cinnamon' 'o' )"
 retval=$?
 if [ $retval -eq 1 ] || [ $retval -eq 255 ]; then
 	exit 0

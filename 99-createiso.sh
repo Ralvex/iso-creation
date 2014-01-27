@@ -13,11 +13,7 @@ answer="$(eval dialog \
 	--menu \"Select the edition you want to create the iso for:\" \
 	0 0 0 \
 	'xfce' 'o' \
-	'kde' 'o' \
-	'mate' 'o' \
-	'ratpoison' 'o' \
-	'openbox' 'o' \
-	'lxde' 'o' )"
+	'cinnamon' 'o')"
 retval=$?
 if [ $retval -eq 1 ] || [ $retval -eq 255 ]; then
 	exit 0
@@ -39,10 +35,10 @@ else
 fi
 
 answer="$(eval dialog \
-	--title \"Enter Salix version\" \
+	--title \"Enter SalixBang version\" \
 	--stdout \
 	--inputbox \
-	\"Enter the salix version you want to create the iso for.\n\You can add suffixes like alpha1, beta1, RC1 etc here.:\" \
+	\"Enter the salixbang version you want to create the iso for.\n\You can add suffixes like alpha1, beta1, RC1 etc here.:\" \
 	0 0 )"
 retval=$?
 if [ $retval -eq 1 ] || [ $retval -eq 255 ]; then
@@ -58,16 +54,16 @@ fi
 
 cd iso
 
-mkisofs -o ../salix${LIBDIRSUFFIX}-${edition}-${ver}.iso \
-  -R -J -A "Salix${LIBDIRSUFFIX} Install" \
+mkisofs -o ../salixbang${LIBDIRSUFFIX}-${edition}-${ver}.iso \
+  -R -J -A "salixbang${LIBDIRSUFFIX} Install" \
   -hide-rr-moved \
   -v -d -N \
   -no-emul-boot -boot-load-size 4 -boot-info-table \
   -sort isolinux/iso.sort \
   -b isolinux/isolinux.bin \
   -c isolinux/isolinux.boot \
-  -V "Salix${LIBDIRSUFFIX} $edition $ver" .
+  -V "salixbang${LIBDIRSUFFIX} $edition $ver" .
 
 cd ..
-isohybrid salix${LIBDIRSUFFIX}-${edition}-${ver}.iso
+isohybrid salixbang${LIBDIRSUFFIX}-${edition}-${ver}.iso
 

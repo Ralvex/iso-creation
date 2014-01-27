@@ -79,7 +79,6 @@ grep
 groff
 gzip
 hdparm
-htop
 icmpinfo
 indent
 inetd
@@ -87,7 +86,6 @@ infozip
 inotify-tools
 iptables
 iputils
-isapnptools
 ispell
 jfsutils
 kbd
@@ -254,4 +252,4 @@ libtasn1
 lm_sensors
 spi
 os-prober
-wheel-sudo
+htop
